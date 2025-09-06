@@ -40,3 +40,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 .vscode
+app/the-wild-oasis-website.code-workspace
