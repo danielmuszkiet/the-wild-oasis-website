@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import Navigation from "./components/Navigation";
-import Logo from "./components/Logo";
+import "./_styles/globals.css";
+import Navigation from "@/app/_components/Navigation";
+import Logo from "@/app/_components/Logo";
 
 export const metadata: Metadata = {
   title: "The Wild Oasis",
