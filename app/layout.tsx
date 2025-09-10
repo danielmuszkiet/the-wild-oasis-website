@@ -29,7 +29,9 @@ export default function RootLayout({
     <html lang="en" className={`${josefinSans.className} antialiased`}>
       <body className="bg-primary-950 text-primary-100 flex min-h-screen flex-col">
         <Header />
-        <main className="flex-1">{children}</main>
+        <div className="flex-1 px-8 py-12">
+          <main className="mx-auto max-w-7xl">{children}</main>
+        </div>
       </body>
     </html>
   );
