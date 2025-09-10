@@ -4,8 +4,12 @@ import Navigation from "@/app/_components/Navigation";
 import Logo from "@/app/_components/Logo";
 
 export const metadata: Metadata = {
-  title: "The Wild Oasis",
-  description: "Wild Oasis Registration",
+  title: {
+    template: "%s | The Wild Oasis",
+    default: "Welcome | The Wild Oasis",
+  },
+  description:
+    "Luxurious cabin hotel, located in the heart of the italian Dolomites, surrounded by beautiful mountains and dark forests",
 };
 
 export default function RootLayout({
@@ -15,7 +19,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="flex min-h-screen flex-col">
+      <body className="bg-primary-950 text-primary-100 flex min-h-screen flex-col">
         <header>
           <Logo />
         </header>

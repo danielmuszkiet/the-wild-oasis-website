@@ -7,13 +7,14 @@ const navItems = [
   { name: "Home", href: "/" },
   { name: "Cabins", href: "/cabins" },
   { name: "About", href: "/about" },
+  { name: "Account", href: "/account" },
 ];
 
 export default function Navigation() {
   const pathname = usePathname();
 
   return (
-    <nav className="flex select-none gap-6 bg-gray-900 p-4 text-white">
+    <nav className="flex gap-6 bg-gray-900 p-4 text-white select-none">
       {navItems.map((item) => {
         const isActive = pathname === item.href;
         return (
