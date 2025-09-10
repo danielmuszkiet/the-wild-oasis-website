@@ -16,7 +16,7 @@ export default function Navigation() {
 
   return (
     <nav className="z-10 text-xl">
-      <ul className="flex items-center gap-4 md:gap-16">
+      <ul className="flex items-center gap-4 md:gap-10">
         {navItems.map((item) => {
           const isActive = pathname === item.href;
           return (
