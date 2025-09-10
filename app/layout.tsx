@@ -30,7 +30,6 @@ export default function RootLayout({
       <body className="bg-primary-950 text-primary-100 flex min-h-screen flex-col">
         <Header />
         <main className="flex-1">{children}</main>
-        <footer className="italic">Copyright by Daniel Muszkiet</footer>
       </body>
     </html>
   );
