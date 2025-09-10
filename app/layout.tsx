@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 
 import Navigation from "@/app/_components/Navigation";
 import Logo from "@/app/_components/Logo";
+import Header from "./_components/Header";
 
 export const metadata: Metadata = {
   title: {
@@ -27,10 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${josefinSans.className} antialiased`}>
       <body className="bg-primary-950 text-primary-100 flex min-h-screen flex-col">
-        <header>
-          <Logo />
-        </header>
-        <Navigation />
+        <Header />
         <main className="flex-1">{children}</main>
         <footer className="italic">Copyright by Daniel Muszkiet</footer>
       </body>
