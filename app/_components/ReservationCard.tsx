@@ -7,17 +7,17 @@ import DeleteReservation from "./DeleteReservation";
 
 import type { Booking } from "../_lib/definitions";
 
-function ReservationCard({ booking }: Booking) {
+function ReservationCard({ booking }: { booking: Booking }) {
   const {
     id,
-    guestId,
+    // guestId,
     startDate,
     endDate,
     numNights,
-    totalPrice,
-    numGuests,
-    status,
-    created_at,
+    // totalPrice,
+    // numGuests,
+    // status,
+    // created_at,
     cabins: { name, image },
   } = booking;
   return (

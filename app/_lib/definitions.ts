@@ -1,23 +1,8 @@
-export type Cabin = {
-  id: number;
-  name: string;
-  maxCapacity: number;
-  regularPrice: number;
-  discount: number;
-  image: string;
-};
+import { Tables } from "./database.types";
 
-export type Booking = {
-  booking: {
-    id: string;
-    guestId: string;
-    startDate: string;
-    endDate: string;
-    numNights: string;
-    totalPrice: string;
-    numGuests: string;
-    status: string;
-    created_at: string;
-    cabins: { name: string; image: string };
-  };
+export type Cabin = Tables<"cabins">;
+type Bookings = Tables<"bookings">;
+
+export type Booking = Bookings & {
+  cabins: Pick<Cabin, "name" | "image">;
 };
