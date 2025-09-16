@@ -1,4 +1,9 @@
 import SelectCountry from "@/app/_components/SelectCountry";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Update profile",
+};
 
 function Page() {
   const countryFlag = "pt.jpg";
@@ -17,7 +22,7 @@ function Page() {
 
       <form
         action=""
-        className="bg-primary-900 flex flex-col gap-6 px-12 py-8 text-lg"
+        className="bg-primary-900 flex flex-col gap-6 px-6 py-8 text-lg md:px-12"
       >
         <div>
           <label>Full name</label>
@@ -38,7 +43,7 @@ function Page() {
           />
         </div>
 
-        <div className="space-y-2">
+        <div className="space-y-1">
           <div className="flex justify-between">
             <label htmlFor="nationality">Where are you from?</label>
             <img
