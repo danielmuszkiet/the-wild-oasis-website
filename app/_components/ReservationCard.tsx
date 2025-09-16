@@ -21,19 +21,19 @@ function ReservationCard({ booking }: Booking) {
     cabins: { name, image },
   } = booking;
   return (
-    <div className="border-primary-800 mb-4 flex flex-col border md:flex-row">
+    <div className="border-primary-800 mb-4 flex flex-col border lg:flex-row">
       <div className="relative aspect-square h-50">
         <Image
           src={image}
           fill
           alt={`Cabin ${name}`}
-          className="border-primary-800 border-b object-cover md:border-r"
+          className="border-primary-800 border-b object-cover lg:border-r"
         />
       </div>
 
-      <div className="flex flex-grow flex-col px-2 py-3 md:px-6">
+      <div className="flex flex-grow flex-col px-2 py-3 lg:px-6">
         <div className="flex items-start justify-between gap-2">
-          <h3 className="text-lg font-semibold md:text-xl">
+          <h3 className="text-lg font-semibold lg:text-xl">
             {numNights} nights in Cabin {name}
           </h3>
           {isPast(new Date(startDate)) ? (
@@ -47,7 +47,7 @@ function ReservationCard({ booking }: Booking) {
           )}
         </div>
 
-        <p className="text-sm md:text-base">
+        <p className="text-sm lg:text-base">
           {format(new Date(startDate), "EEE, MMM dd yyyy")} (
           {isToday(new Date(startDate))
             ? "Today"
@@ -56,7 +56,7 @@ function ReservationCard({ booking }: Booking) {
         </p>
       </div>
 
-      <div className="border-primary-800 flex h-[50px] border-t md:h-auto md:w-[100px] md:flex-col md:border-t-0 md:border-l">
+      <div className="border-primary-800 flex h-[50px] border-t lg:h-auto lg:w-[100px] lg:flex-col lg:border-t-0 lg:border-l">
         <a
           href={`/account/reservations/edit/${id}`}
           className="group text-primary-300 hover:bg-accent-600 hover:text-primary-900 bg-primary-900 flex flex-grow items-center justify-center gap-1 px-3 text-xs font-bold uppercase transition-colors"
