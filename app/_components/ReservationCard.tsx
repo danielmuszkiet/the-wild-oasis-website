@@ -1,34 +1,11 @@
+import { formatDistanceFromNow } from "@/app/_lib/utils";
+import { format, isPast, isToday } from "date-fns";
+
 import { PencilSquareIcon } from "@heroicons/react/24/solid";
-import {
-  format,
-  formatDistance,
-  formatDistanceToNow,
-  isPast,
-  isToday,
-  parseISO,
-} from "date-fns";
 import Image from "next/image";
+import DeleteReservation from "./DeleteReservation";
 
-export const formatDistanceFromNow = (dateStr: string) =>
-  formatDistance(parseISO(dateStr), new Date(), {
-    addSuffix: true,
-  }).replace("about ", "");
-
-//!Temp Get die type from supabase into definitions an import it here!
-type Booking = {
-  booking: {
-    id: string;
-    guestId: string;
-    startDate: string;
-    endDate: string;
-    numNights: string;
-    totalPrice: string;
-    numGuests: string;
-    status: string;
-    created_at: string;
-    cabins: { name: string; image: string };
-  };
-};
+import type { Booking } from "../_lib/definitions";
 
 function ReservationCard({ booking }: Booking) {
   const {
@@ -82,13 +59,13 @@ function ReservationCard({ booking }: Booking) {
       <div className="border-primary-800 flex h-[50px] border-t md:h-auto md:w-[100px] md:flex-col md:border-t-0 md:border-l">
         <a
           href={`/account/reservations/edit/${id}`}
-          className="group text-primary-300 border-primary-800 hover:bg-accent-600 hover:text-primary-900 bg-primary-900 flex flex-grow items-center justify-center gap-1 px-3 text-xs font-bold uppercase transition-colors"
+          className="group text-primary-300 hover:bg-accent-600 hover:text-primary-900 bg-primary-900 flex flex-grow items-center justify-center gap-1 px-3 text-xs font-bold uppercase transition-colors"
         >
           <PencilSquareIcon className="text-primary-600 group-hover:text-primary-800 h-5 w-5 transition-colors" />
           <span className="mt-1">Edit</span>
         </a>
 
-        {/* <DeleteReservation bookingId={id} /> */}
+        <DeleteReservation bookingId={id} />
       </div>
     </div>
   );
