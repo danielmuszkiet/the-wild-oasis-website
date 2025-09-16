@@ -6,3 +6,18 @@ export type Cabin = {
   discount: number;
   image: string;
 };
+
+export type Booking = {
+  booking: {
+    id: string;
+    guestId: string;
+    startDate: string;
+    endDate: string;
+    numNights: string;
+    totalPrice: string;
+    numGuests: string;
+    status: string;
+    created_at: string;
+    cabins: { name: string; image: string };
+  };
+};
