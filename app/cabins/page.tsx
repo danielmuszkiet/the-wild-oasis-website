@@ -1,31 +1,13 @@
 import { Metadata } from "next";
 import CabinCard from "../_components/CabinCard";
+import { Cabin } from "../_lib/definitions";
 
 export const metadata: Metadata = {
   title: "Cabins",
 };
 
 export default function Page() {
-  const cabins = [
-    {
-      id: 0,
-      name: "Cabin 01",
-      maxCapacity: 3,
-      regularPrice: 200,
-      discount: 30,
-      image:
-        "https://tzvtgzwgbekmhhsbuusn.supabase.co/storage/v1/object/public/cabin-images/cabin-002.jpg",
-    },
-    {
-      id: 1,
-      name: "Cabin 02",
-      maxCapacity: 4,
-      regularPrice: 300,
-      discount: 10,
-      image:
-        "https://tzvtgzwgbekmhhsbuusn.supabase.co/storage/v1/object/public/cabin-images/cabin-002.jpg",
-    },
-  ];
+  const cabins: Cabin[] = [];
 
   return (
     <div>
