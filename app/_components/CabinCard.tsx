@@ -1,6 +1,7 @@
 import { UserIcon } from "@heroicons/react/24/solid";
 import { Cabin } from "@/app/_lib/definitions";
 import Image from "next/image";
+import Link from "next/link";
 
 function CabinCard({ cabin }: { cabin: Cabin }) {
   const { discount, id, image, maxCapacity, name, regularPrice } = cabin;
@@ -13,7 +14,7 @@ function CabinCard({ cabin }: { cabin: Cabin }) {
           objectFit="cover"
           fill
           alt={`Image of cabin ${name}`}
-          className="border-primary-800 flex-1 border-b md:border-r"
+          className="border-primary-800 flex-1 border-b lg:border-r lg:border-b-0"
         />
       </div>
       <div className="grow">
@@ -49,12 +50,12 @@ function CabinCard({ cabin }: { cabin: Cabin }) {
         </div>
 
         <div className="bg-primary-950 border-t-primary-800 border-t text-right">
-          <a
+          <Link
             href={`/cabins/${id}`}
-            className="border-primary-800 hover:bg-accent-600 hover:text-primary-900 bg-primary-900 md: text- inline-block w-full px-6 py-4 text-center whitespace-nowrap transition-all sm:border-l md:w-auto"
+            className="border-primary-800 hover:bg-accent-600 hover:text-primary-900 bg-primary-900 md: text- inline-block w-full px-6 py-4 text-center whitespace-nowrap transition-all md:w-auto md:border-l"
           >
             Details & reservation &rarr;
-          </a>
+          </Link>
         </div>
       </div>
     </div>
