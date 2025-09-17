@@ -23,7 +23,7 @@ export default async function Page() {
         Welcome to paradise.
       </p>
       {cabins.length > 0 && (
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-12 xl:gap-14">
+        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
           {cabins.map((cabin) => {
             return <CabinCard cabin={cabin} key={cabin.id} />;
           })}
