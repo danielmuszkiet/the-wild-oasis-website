@@ -1,25 +1,30 @@
 import { UserIcon } from "@heroicons/react/24/solid";
 import { Cabin } from "@/app/_lib/definitions";
+import Image from "next/image";
 
 function CabinCard({ cabin }: { cabin: Cabin }) {
   const { discount, id, image, maxCapacity, name, regularPrice } = cabin;
 
   return (
-    <div className="border-primary-800 flex flex-col border md:flex-row">
-      <img
-        src={image}
-        alt={`Image of cabin ${name}`}
-        className="border-primary-800 flex-1 border-b md:border-r"
-      />
+    <div className="border-primary-800 flex flex-col overflow-hidden border lg:flex-row">
+      <div className="relative h-70 md:aspect-square lg:h-auto">
+        <Image
+          src={image}
+          objectFit="cover"
+          fill
+          alt={`Image of cabin ${name}`}
+          className="border-primary-800 flex-1 border-b md:border-r"
+        />
+      </div>
       <div className="grow">
         <div className="bg-primary-950 p-3 pb-4 md:p-5">
-          <h3 className="text-accent-500 mb-3 text-xl font-semibold md:text-2xl">
+          <h3 className="text-accent-500 mb-3 text-2xl font-semibold">
             Cabin {name}
           </h3>
 
           <div className="mb-2 flex items-center gap-3">
             <UserIcon className="text-primary-600 relative top-[-1px] h-5 w-5" />
-            <p className="text-primary-200 leading-none sm:text-lg">
+            <p className="text-primary-200 text-lg leading-none">
               For up to <span className="font-bold">{maxCapacity}</span> guests
             </p>
           </div>
@@ -46,7 +51,7 @@ function CabinCard({ cabin }: { cabin: Cabin }) {
         <div className="bg-primary-950 border-t-primary-800 border-t text-right">
           <a
             href={`/cabins/${id}`}
-            className="border-primary-800 hover:bg-accent-600 hover:text-primary-900 inline-block px-6 py-4 whitespace-nowrap transition-all sm:border-l"
+            className="border-primary-800 hover:bg-accent-600 hover:text-primary-900 bg-primary-900 md: text- inline-block w-full px-6 py-4 text-center whitespace-nowrap transition-all sm:border-l md:w-auto"
           >
             Details & reservation &rarr;
           </a>
