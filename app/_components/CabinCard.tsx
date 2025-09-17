@@ -11,10 +11,11 @@ function CabinCard({ cabin }: { cabin: Cabin }) {
       <div className="relative h-70 md:aspect-square lg:h-auto">
         <Image
           src={image}
-          objectFit="cover"
           fill
+          priority
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 25vw"
           alt={`Image of cabin ${name}`}
-          className="border-primary-800 flex-1 border-b lg:border-r lg:border-b-0"
+          className="border-primary-800 flex-1 border-b object-cover lg:border-r lg:border-b-0"
         />
       </div>
       <div className="grow">

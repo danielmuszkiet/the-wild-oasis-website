@@ -16,7 +16,8 @@ export default function Page() {
           src={welcome_image}
           alt="Family sitting around a fire pit in front of cabin"
           fill
-          objectFit="cover"
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 40vw"
           placeholder="blur"
         />
       </div>
@@ -52,7 +53,8 @@ export default function Page() {
           src={family_image}
           alt="Family that manages The Wild Oasis"
           fill
-          objectFit="cover"
+          className="object-cover"
+          sizes="(max-width: 768px) 100vw, (max-width: 1024px) 70vw, 40vw"
           placeholder="blur"
         />
       </div>
