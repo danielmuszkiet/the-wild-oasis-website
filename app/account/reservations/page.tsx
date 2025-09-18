@@ -1,6 +1,7 @@
 import ReservationCard from "@/app/_components/ReservationCard";
 import { Booking } from "@/app/_lib/definitions";
 import { Metadata } from "next";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "Reservations",
@@ -17,12 +18,12 @@ function page() {
       {bookings.length === 0 ? (
         <p className="text-lg">
           You have no reservations yet. Check out our{" "}
-          <a
+          <Link
             className="text-accent-500 hover:text-accent-600 underline"
             href="/cabins"
           >
             luxury cabins &rarr;
-          </a>
+          </Link>
         </p>
       ) : (
         <ul>

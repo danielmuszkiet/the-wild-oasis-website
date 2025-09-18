@@ -3,6 +3,7 @@ import Image from "next/image";
 
 import welcome_image from "@/public/about-1.jpg";
 import family_image from "@/public/about-2.jpg";
+import Link from "next/link";
 
 export const metadata: Metadata = {
   title: "About",
@@ -80,12 +81,12 @@ export default function Page() {
           </p>
 
           <div>
-            <a
+            <Link
               href="/cabins"
               className="bg-accent-500 text-primary-800 hover:bg-accent-600 hover:text-primary-900 inline-block px-5 py-4 text-lg leading-none font-semibold transition-all md:px-8 md:py-6 md:text-xl"
             >
               Explore our luxury cabins
-            </a>
+            </Link>
           </div>
         </div>
       </div>
