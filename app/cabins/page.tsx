@@ -1,14 +1,14 @@
 import { Metadata } from "next";
-import CabinCard from "../_components/CabinCard";
-import { getCabins } from "../_lib/data";
+import { Suspense } from "react";
+
+import CabinList from "@/app/_components/CabinList";
+import Spinner from "@/app/_components/Spinner";
 
 export const metadata: Metadata = {
   title: "Cabins",
 };
 
-export default async function Page() {
-  const cabins = await getCabins();
-
+export default function Page() {
   return (
     <div>
       <h1 className="text-accent-400 mb-5 text-2xl font-medium md:text-4xl">
@@ -22,13 +22,9 @@ export default async function Page() {
         home away from home. The perfect spot for a peaceful, calm vacation.
         Welcome to paradise.
       </p>
-      {cabins.length > 0 && (
-        <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:gap-10">
-          {cabins.map((cabin) => {
-            return <CabinCard cabin={cabin} key={cabin.id} />;
-          })}
-        </div>
-      )}
+      <Suspense fallback={<Spinner />}>
+        <CabinList />
+      </Suspense>
     </div>
   );
 }
