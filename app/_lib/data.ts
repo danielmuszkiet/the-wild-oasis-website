@@ -8,7 +8,8 @@ export async function getCabin(id: number) {
     .single();
 
   if (error) {
-    console.log(error);
+    console.error(error);
+    throw new Error("Cabin could not be found");
   }
 
   return data;
