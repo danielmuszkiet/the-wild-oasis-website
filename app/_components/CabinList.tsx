@@ -1,6 +1,8 @@
 import { getCabins } from "../_lib/data";
 import CabinCard from "./CabinCard";
 
+export const revalidate = 60;
+
 async function CabinList() {
   const cabins = await getCabins();
 
