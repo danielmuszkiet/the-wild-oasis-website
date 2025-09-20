@@ -8,6 +8,8 @@ export const metadata: Metadata = {
   title: "Cabins",
 };
 
+export const revalidate = 0;
+
 export default function Page() {
   return (
     <div>
