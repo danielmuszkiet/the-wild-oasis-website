@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Cabins",
 };
 
-export const revalidate = 0;
+export const revalidate = 30;
 
 export default function Page() {
   return (
