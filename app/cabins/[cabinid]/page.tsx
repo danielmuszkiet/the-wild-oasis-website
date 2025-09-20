@@ -1,3 +1,5 @@
+import { connection } from "next/server";
+
 import { getCabin, getCabins } from "@/app/_lib/data";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
 import { Metadata } from "next";
@@ -27,6 +29,7 @@ export async function generateStaticParams() {
 }
 
 export default async function Page({ params }: Props) {
+  await connection();
   const { cabinid } = await params;
   const cabin = await getCabin(Number(cabinid));
 
