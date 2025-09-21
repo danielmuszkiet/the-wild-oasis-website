@@ -1,4 +1,4 @@
-import { Database, Enums, Tables } from "./database.types";
+import { Database, Tables } from "./database.types";
 
 type CabinRaw = Tables<"cabins">;
 type Bookings = Tables<"bookings">;
