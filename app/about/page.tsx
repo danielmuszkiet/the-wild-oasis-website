@@ -4,7 +4,7 @@ import Image from "next/image";
 import welcome_image from "@/public/about-1.jpg";
 import family_image from "@/public/about-2.jpg";
 import Link from "next/link";
-import { getCabins, getEntryCount } from "../_lib/data";
+import { getEntryCount } from "../_lib/data";
 
 export const revalidate = 43200; //12h
 
