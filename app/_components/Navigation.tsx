@@ -13,12 +13,13 @@ const navItems = [
 
 export default function Navigation() {
   const pathname = usePathname();
+  const firstSection = "/" + (pathname.split("/")[1] || "");
 
   return (
     <nav className="z-10 w-full flex-1 text-xl">
       <ul className="flex items-center justify-between gap-4 md:justify-end md:gap-10">
         {navItems.map((item) => {
-          const isActive = pathname === item.href;
+          const isActive = firstSection === item.href;
           return (
             <li key={item.href}>
               <Link
