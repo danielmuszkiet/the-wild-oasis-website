@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
 import { supabase } from "./supabase";
+import { TableKeys } from "./definitions";
 
 export async function getCabin(id: number) {
   const { data, error } = await supabase
@@ -27,4 +28,17 @@ export async function getCabins() {
   }
 
   return data;
+}
+
+export async function getEntryCount(tableName: TableKeys) {
+  const { count, error } = await supabase
+    .from(tableName)
+    .select("id", { count: "exact", head: true });
+
+  if (error) {
+    console.error(error);
+    throw new Error("Count could not be loaded");
+  }
+
+  return count;
 }

@@ -4,7 +4,7 @@ import Image from "next/image";
 import welcome_image from "@/public/about-1.jpg";
 import family_image from "@/public/about-2.jpg";
 import Link from "next/link";
-import { getCabins } from "../_lib/data";
+import { getCabins, getEntryCount } from "../_lib/data";
 
 export const revalidate = 43200; //12h
 
@@ -13,8 +13,7 @@ export const metadata: Metadata = {
 };
 
 export default async function Page() {
-  const cabins = await getCabins();
-  const cabinsCount = cabins.length;
+  const cabinsCount = await getEntryCount("cabins");
 
   return (
     <div className="grid grid-cols-1 items-center gap-y-10 text-lg md:grid-cols-5 md:gap-x-24 md:gap-y-32">

@@ -1,7 +1,9 @@
-import { Tables } from "./database.types";
+import { Database, Enums, Tables } from "./database.types";
 
 type CabinRaw = Tables<"cabins">;
 type Bookings = Tables<"bookings">;
+
+export type TableKeys = keyof Database["public"]["Tables"];
 
 export type Booking = Bookings & {
   cabins: Pick<CabinRaw, "name" | "image">;
