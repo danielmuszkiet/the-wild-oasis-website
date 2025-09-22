@@ -1,13 +1,14 @@
 import SelectCountry from "@/app/_components/SelectCountry";
 import { Metadata } from "next";
+import Image from "next/image";
 
 export const metadata: Metadata = {
   title: "Update profile",
 };
 
 function Page() {
-  const countryFlag = "pt.jpg";
-  const nationality = "portugal";
+  const countryFlag = "https://flagcdn.com/de.svg";
+  const nationality = "Germany";
 
   return (
     <div>
@@ -46,11 +47,15 @@ function Page() {
         <div className="space-y-1">
           <div className="flex justify-between">
             <label htmlFor="nationality">Where are you from?</label>
-            {/* <img
-              src={countryFlag}
-              alt="Country flag"
-              className="h-5 rounded-sm"
-            /> */}
+
+            <div className="relative aspect-video h-5">
+              <Image
+                src={countryFlag}
+                alt="Country flag"
+                fill
+                className="rounded"
+              />
+            </div>
           </div>
 
           <SelectCountry

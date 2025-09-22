@@ -13,3 +13,9 @@ export type Cabin = Pick<
   CabinRaw,
   "id" | "name" | "maxCapacity" | "regularPrice" | "discount" | "image"
 >;
+
+export type Country = {
+  name: string;
+  flag: string;
+  independent: boolean;
+};

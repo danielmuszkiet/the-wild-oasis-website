@@ -1,6 +1,6 @@
 import { notFound } from "next/navigation";
 import { supabase } from "./supabase";
-import { TableKeys } from "./definitions";
+import { Country, TableKeys } from "./definitions";
 
 export async function getCabin(id: number) {
   const { data, error } = await supabase
@@ -41,4 +41,16 @@ export async function getEntryCount(tableName: TableKeys) {
   }
 
   return count;
+}
+
+export async function getCountries() {
+  try {
+    const res = await fetch(
+      "https://restcountries.com/v2/all?fields=name,flag",
+    );
+    const countries = await res.json();
+    return countries as Country[];
+  } catch {
+    throw new Error("Could not fetch countries");
+  }
 }

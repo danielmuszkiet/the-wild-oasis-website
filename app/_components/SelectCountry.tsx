@@ -1,3 +1,5 @@
+import { getCountries } from "../_lib/data";
+
 type SelectCountryProps = {
   defaultCountry: string;
   name: string;
@@ -5,24 +7,18 @@ type SelectCountryProps = {
   className?: string;
 };
 
-function SelectCountry({
+async function SelectCountry({
   defaultCountry,
   name,
   id,
   className,
 }: SelectCountryProps) {
-  // const countries = await getCountries();
-  // !TEMPORARY FIX LATER WHEN FETCHING!
-  const countries = [
-    { name: "germany", flag: "de" },
-    { name: "france", flag: "fr" },
-    { name: "england", flag: "en" },
-    { name: "portugal", flag: "pt" },
-  ];
+  const countries = await getCountries();
 
-  //!TEMPORARY FIX LATER WHEN FETCHING
-  const flag = "pt";
-  //   countries.find((country) => country.name === defaultCountry)?.flag ?? '';
+  const flag =
+    countries.find((country) => country.name === defaultCountry)?.flag ?? "";
+
+  console.log(flag);
 
   return (
     <select
