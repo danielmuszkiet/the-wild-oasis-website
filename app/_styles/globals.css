@@ -80,10 +80,16 @@
   }
 
   /* For data picker */
-  .rdp {
-    --rdp-cell-size: 32px !important;
+  .rdp-root {
     --rdp-accent-color: theme('--color-accent-500') !important;
-    --rdp-background-color: theme('--color-accent-600') !important;
-    margin: 0 !important;
+    --rdp-accent-background-color: theme('--color-accent-400') !important;
+    --rdp-range_middle-color: theme('--color-accent-100') !important;
+    --rdp-day_button-height: 38px !important;
+    --rdp-day_button-width: 38px !important;
+    --rdp-day-height: 38px !important;
+    --rdp-day-width: 38px !important;
+
   }
+
+
 }

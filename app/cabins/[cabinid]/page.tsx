@@ -1,3 +1,5 @@
+import DateSelector from "@/app/_components/DateSelector";
+import ReservationForm from "@/app/_components/ReservationForm";
 import TextExpander from "@/app/_components/TextExpander";
 import { getCabin, getCabins } from "@/app/_lib/data";
 import { EyeSlashIcon, MapPinIcon, UsersIcon } from "@heroicons/react/24/solid";
@@ -35,8 +37,8 @@ export default async function Page({ params }: Props) {
 
   return (
     <div className="mx-auto max-w-6xl lg:mt-8">
-      <div className="border-primary-800 mb-10 grid gap-10 border px-5 py-5 md:mb-14 md:px-10 md:py-10 lg:mb-24 lg:grid-cols-[3fr_4fr] lg:gap-20 lg:py-3">
-        <div className="relative h-80 md:h-100 lg:h-auto lg:-translate-x-3 lg:scale-[1.15]">
+      <div className="border-primary-800 mb-12 grid gap-10 border px-5 py-5 md:mb-14 md:px-10 md:py-10 lg:mb-24 lg:grid-cols-[3fr_4fr] lg:gap-20 lg:py-3">
+        <div className="relative h-80 md:h-100 lg:h-auto lg:-translate-x-4 lg:scale-[1.15]">
           <Image
             priority
             src={image}
@@ -81,9 +83,13 @@ export default async function Page({ params }: Props) {
       </div>
 
       <div>
-        <h2 className="text-center text-4xl font-semibold md:text-5xl">
-          Reserve today. Pay on arrival.
+        <h2 className="text-accent-400 mb-10 text-center text-4xl font-semibold md:text-5xl">
+          Reserve {name} today. Pay on arrival.
         </h2>
+        <div className="border-primary-800 grid border lg:grid-cols-[1.2fr_1fr]">
+          <DateSelector />
+          <ReservationForm />
+        </div>
       </div>
     </div>
   );
