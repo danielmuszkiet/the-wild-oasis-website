@@ -1,5 +1,10 @@
-function ReservationForm() {
-  const maxCapacity = 23;
+"use client";
+
+import { Cabin } from "../_lib/definitions";
+
+function ReservationForm({ cabin }: { cabin: Cabin }) {
+  const { maxCapacity } = cabin;
+
   return (
     <div>
       <div className="bg-primary-800 text-primary-300 flex items-center justify-between px-16 py-2">

@@ -1,8 +1,9 @@
 "use client";
 
 import { isWithinInterval } from "date-fns";
-import { DayPicker, getDefaultClassNames } from "react-day-picker";
+import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
+import { Cabin, Settings } from "../_lib/definitions";
 
 function isAlreadyBooked(range: { from: Date; to: Date }, datesArr: Date[]) {
   return (
@@ -14,18 +15,22 @@ function isAlreadyBooked(range: { from: Date; to: Date }, datesArr: Date[]) {
   );
 }
 
-function DateSelector() {
+function DateSelector({
+  settings,
+  bookedDates,
+  cabin,
+}: {
+  settings: Settings;
+  bookedDates: Date[];
+  cabin: Cabin;
+}) {
   const regularPrice = 23;
   const discount = 23;
   const numNights = 23;
   const cabinPrice = 23;
   const range = { from: null, to: null };
 
-  // SETTINGS
-  const minBookingLength = 1;
-  const maxBookingLength = 23;
-
-  const defaultClassNames = getDefaultClassNames();
+  const { maxBookingLength, minBookingLength } = settings;
 
   return (
     <div className="flex flex-col justify-between">
@@ -33,7 +38,7 @@ function DateSelector() {
         className="m-auto flex w-full justify-center px-3 py-5 lg:py-0"
         mode="range"
         animate
-        min={minBookingLength + 1}
+        min={minBookingLength}
         max={maxBookingLength}
         startMonth={new Date()}
         endMonth={new Date(new Date().getFullYear() + 5, 0)}

@@ -14,6 +14,8 @@ export type Cabin = Pick<
   "id" | "name" | "maxCapacity" | "regularPrice" | "discount" | "image"
 >;
 
+export type Settings = Tables<"settings">;
+
 export type Country = {
   name: string;
   flag: string;
