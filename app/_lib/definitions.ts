@@ -1,6 +1,6 @@
 import { Database, Tables } from "./database.types";
 
-type CabinRaw = Tables<"cabins">;
+export type CabinRaw = Tables<"cabins">;
 type Bookings = Tables<"bookings">;
 
 export type TableKeys = keyof Database["public"]["Tables"];
