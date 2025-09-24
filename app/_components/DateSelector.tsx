@@ -1,10 +1,10 @@
 "use client";
 
-import { isWithinInterval, set } from "date-fns";
-import { DateRange, DayPicker } from "react-day-picker";
+import { isWithinInterval } from "date-fns";
+import { DayPicker } from "react-day-picker";
 import "react-day-picker/dist/style.css";
 import { Cabin, Settings } from "../_lib/definitions";
-import { useState } from "react";
+import { useReservation } from "./context/useReservation";
 
 function isAlreadyBooked(range: { from: Date; to: Date }, datesArr: Date[]) {
   return (
@@ -25,10 +25,7 @@ function DateSelector({
   bookedDates: Date[];
   cabin: Cabin;
 }) {
-  const [range, setRange] = useState<DateRange | undefined>({
-    from: undefined,
-    to: undefined,
-  });
+  const { range, setRange, resetRange } = useReservation();
 
   const regularPrice = 23;
   const discount = 23;
@@ -36,10 +33,6 @@ function DateSelector({
   const cabinPrice = 23;
 
   const { maxBookingLength, minBookingLength } = settings;
-
-  function resetRange() {
-    setRange({ from: undefined, to: undefined });
-  }
 
   return (
     <div className="flex flex-col justify-between">

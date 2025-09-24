@@ -1,8 +1,10 @@
 "use client";
 
 import { Cabin } from "../_lib/definitions";
+import { useReservation } from "./context/useReservation";
 
 function ReservationForm({ cabin }: { cabin: Cabin }) {
+  const { range } = useReservation();
   const { maxCapacity } = cabin;
 
   return (

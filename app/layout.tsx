@@ -4,6 +4,7 @@ import { Josefin_Sans } from "next/font/google";
 import type { Metadata } from "next";
 
 import Header from "./_components/Header";
+import ReservationProvider from "./_components/context/ReservationProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -29,7 +30,9 @@ export default function RootLayout({
         <Header />
 
         <div className="grid flex-1 px-8 py-12">
-          <main className="mx-auto w-full max-w-7xl">{children}</main>
+          <main className="mx-auto w-full max-w-7xl">
+            <ReservationProvider>{children}</ReservationProvider>
+          </main>
         </div>
       </body>
     </html>
