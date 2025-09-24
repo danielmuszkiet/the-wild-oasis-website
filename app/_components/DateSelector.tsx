@@ -92,7 +92,7 @@ function DateSelector({
             </>
           ) : null}
         </div>
-        {range.from || range.to ? (
+        {range?.from || range?.to ? (
           <button
             className="border-primary-800 w-full cursor-pointer border px-4 py-2 text-sm font-semibold md:w-auto"
             onClick={() => resetRange()}
