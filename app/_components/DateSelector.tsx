@@ -25,7 +25,7 @@ function DateSelector({
   bookedDates: Date[];
   cabin: Cabin;
 }) {
-  const [range, setRange] = useState<DateRange>({
+  const [range, setRange] = useState<DateRange | undefined>({
     from: undefined,
     to: undefined,
   });
@@ -36,11 +36,6 @@ function DateSelector({
   const cabinPrice = 23;
 
   const { maxBookingLength, minBookingLength } = settings;
-
-  function handelDateRangeSelection(selectedRange: DateRange | undefined) {
-    if (!selectedRange) return;
-    setRange({ from: selectedRange.from, to: selectedRange.to });
-  }
 
   function resetRange() {
     setRange({ from: undefined, to: undefined });
@@ -63,7 +58,7 @@ function DateSelector({
         classNames={{
           months: "flex flex-col md:flex-row md:gap-5 md:w-full justify-center",
         }}
-        onSelect={(range) => handelDateRangeSelection(range)}
+        onSelect={setRange}
       />
 
       <div className="bg-accent-500 text-primary-800 md:gap:0 flex flex-col items-center justify-between gap-2 px-2 py-2 md:h-[72px] md:flex-row md:px-8 md:py-0">
