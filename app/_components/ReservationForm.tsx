@@ -2,28 +2,34 @@
 
 import { Cabin } from "../_lib/definitions";
 import { useReservation } from "./context/useReservation";
+import Image from "next/image";
+import { User } from "next-auth";
 
-function ReservationForm({ cabin }: { cabin: Cabin }) {
+function ReservationForm({ cabin, user }: { cabin: Cabin; user: User }) {
   const { range } = useReservation();
   const { maxCapacity } = cabin;
 
   return (
     <div className="flex flex-col">
-      <div className="bg-primary-800 text-primary-300 flex items-center justify-between px-16 py-2">
+      <div className="bg-primary-800 text-primary-300 flex items-center justify-between px-5 py-2 md:px-10">
         <p>Logged in as</p>
-        {/* <div className='flex gap-4 items-center'>
-          <img
-            // Important to display google profile images
-            referrerPolicy='no-referrer'
-            className='h-8 rounded-full'
-            src={user.image}
-            alt={user.name}
-          />
+        <div className="flex items-center gap-4">
+          {user.image && (
+            <div className="relative aspect-square h-7">
+              <Image
+                referrerPolicy="no-referrer"
+                className="h-8 rounded-full"
+                fill
+                src={user.image}
+                alt={user.name!}
+              />
+            </div>
+          )}
           <p>{user.name}</p>
-        </div> */}
+        </div>
       </div>
 
-      <form className="bg-primary-900 flex flex-1 flex-col justify-between gap-5 px-5 py-8 md:px-10">
+      <form className="bg-primary-900 flex flex-1 flex-col justify-between px-5 py-8 md:px-10">
         <div>
           <label htmlFor="numGuests">How many guests?</label>
           <select
