@@ -8,7 +8,7 @@ function ReservationForm({ cabin }: { cabin: Cabin }) {
   const { maxCapacity } = cabin;
 
   return (
-    <div>
+    <div className="flex flex-col">
       <div className="bg-primary-800 text-primary-300 flex items-center justify-between px-16 py-2">
         <p>Logged in as</p>
         {/* <div className='flex gap-4 items-center'>
@@ -23,7 +23,7 @@ function ReservationForm({ cabin }: { cabin: Cabin }) {
         </div> */}
       </div>
 
-      <form className="bg-primary-900 flex flex-col justify-between gap-5 px-5 py-8 md:px-10">
+      <form className="bg-primary-900 flex flex-1 flex-col justify-between gap-5 px-5 py-8 md:px-10">
         <div>
           <label htmlFor="numGuests">How many guests?</label>
           <select
